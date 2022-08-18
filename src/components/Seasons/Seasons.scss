@@ -1,0 +1,40 @@
+.btn_square {
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #000;
+  background-color: #fff;
+  padding: 0.6rem 1.5rem;
+
+  & + .btn_square {
+    margin-left: 1rem;
+  }
+
+  &:hover {
+    color: #eee;
+    transition: all;
+  }
+
+  &.active {
+    background: #0dc2e1;
+  }
+}
+
+.seasons__container {
+  margin-top: 12px;
+
+  h3 {
+    font-weight: 600;
+    font-size: 25px;
+  }
+
+  .seasons {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
