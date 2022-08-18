@@ -11,11 +11,11 @@
     max-width: 1000px;
 
     &--logo {
+      width: 100%;
       @include flex(center, center);
       margin-bottom: 5rem;
 
       @include mobile {
-        width: 30px;
       }
     }
 
