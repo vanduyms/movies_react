@@ -24,34 +24,35 @@ const VideoList = props => {
   }, [catergory, props.id, episodes, seasons]);
 
   return (
-    <Video keyUrl={keyUrl} />
+    <Video />
   );
 }
 
 const Video = () => {
   const { catergory, id } = useParams();
   const [show, setShow] = useState(false);
-
-  let url = "";
-  if (catergory === "tv") {
-    if (id.includes("&")) {
-      let tvSeries = id.split("&");
-      url = `/embedtv/${tvSeries[0]}&s=${tvSeries[1].split("=")[1]}&e=${tvSeries[2].split("=")[1]}`;
-    }
-  } else {
-    url = `embed/${id}`;
-  }
-  if (url) setShow(true);
+  const [url, setUrl] = useState("");
 
   const iframeRef = useRef(null);
-  console.log(url);
   useEffect(() => {
     const height = iframeRef.current.offsetWidth * 9 / 16 + 'px';
     iframeRef.current.setAttribute('height', height);
-  }, []);
+
+    if (catergory === "tv") {
+      if (id.includes("&")) {
+        let tvSeries = id.split("&");
+        setUrl(`/embedtv/${tvSeries[0]}&s=${tvSeries[1].split("=")[1]}&e=${tvSeries[2].split("=")[1]}`);
+      }
+    } else {
+      setUrl(`embed/${id}`);
+    }
+
+    setShow(true);
+  }, [catergory, id]);
 
   return (
-    <div className="video" hidden={!show}>
+    <div className="video" >
+      <p>Video</p>
       <iframe
         // src={`https://2embed.biz/play/movie.php?imdb=${}`}
         src={"https://www.2embed.cc/" + url}
@@ -60,6 +61,7 @@ const Video = () => {
         height="100%"
         title="video"
         allowFullScreen={true}
+        hidden={!show}
       ></iframe>
     </div>
   )
