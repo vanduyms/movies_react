@@ -31,9 +31,11 @@ const VideoList = props => {
 const Video = props => {
   const keyUrl = props.keyUrl;
   console.log(keyUrl);
+  console.log(useParams());
   const iframeRef = useRef(null);
   let url = "";
-  if (keyUrl[0] === "m") url = keyUrl.split("=")[1];
+  if (keyUrl[0] === "m") url = "/" + keyUrl.split("=")[1];
+  // else:
   console.log(url);
   useEffect(() => {
     const height = iframeRef.current.offsetWidth * 9 / 16 + 'px';
@@ -45,7 +47,7 @@ const Video = props => {
     <div className="video">
       <iframe
         // src={`https://2embed.biz/play/movie.php?imdb=${}`}
-        src={"https://www.2embed.cc/embed/" + url}
+        src={"https://www.2embed.cc/embed" + url}
         ref={iframeRef}
         width="100%"
         height="100%"
