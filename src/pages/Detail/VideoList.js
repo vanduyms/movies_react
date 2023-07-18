@@ -42,13 +42,14 @@ const Video = () => {
       if (id.includes("&")) {
         let tvSeries = id.split("&");
         setUrl(`/embedtv/${tvSeries[0]}&s=${tvSeries[1].split("=")[1]}&e=${tvSeries[2].split("=")[1]}`);
+        setShow(true);
       }
     } else {
       setUrl(`embed/${id}`);
+      setShow(true);
     }
 
     console.log(url);
-    if (url) setShow(true);
   }, [catergory, id, url]);
 
   return (
