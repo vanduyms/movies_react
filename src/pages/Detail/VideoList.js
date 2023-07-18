@@ -30,6 +30,7 @@ const VideoList = props => {
 
 const Video = props => {
   const keyUrl = props.keyUrl;
+  console.log(keyUrl);
   const iframeRef = useRef(null);
 
 
