@@ -53,17 +53,18 @@ const Video = () => {
 
   return (
     <div className="video" >
-      <p>Video</p>
-      <iframe
-        // src={`https://2embed.biz/play/movie.php?imdb=${}`}
-        src={"https://www.2embed.cc/" + url}
-        ref={iframeRef}
-        width="100%"
-        height="100%"
-        title="video"
-        allowFullScreen={true}
-      // hidden={!show}
-      ></iframe>
+      <p style={{ paddingBottom: 20 }}>Video</p>
+      <div hidden={!show}>
+        <iframe
+          // src={`https://2embed.biz/play/movie.php?imdb=${}`}
+          src={"https://www.2embed.cc/" + url}
+          ref={iframeRef}
+          width="100%"
+          height="100%"
+          title="video"
+          allowFullScreen={true}
+        ></iframe>
+      </div>
     </div>
   )
 }
