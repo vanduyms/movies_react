@@ -38,6 +38,7 @@ const Video = props => {
   } else {
     url = `embed/${id}`;
   }
+  console.log(url);
 
   const iframeRef = useRef(null);
   // else:
