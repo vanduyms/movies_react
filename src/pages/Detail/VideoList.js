@@ -62,7 +62,7 @@ const Video = () => {
         height="100%"
         title="video"
         allowFullScreen={true}
-        hidden={!show}
+      // hidden={!show}
       ></iframe>
     </div>
   )
