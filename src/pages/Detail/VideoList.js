@@ -43,7 +43,7 @@ const Video = props => {
     <div className="video">
       <iframe
         // src={`https://2embed.biz/play/movie.php?imdb=${}`}
-        src={"https://www.2embed.biz/play/" + keyUrl}
+        src={"https://www.2embed.cc/embed/" + keyUrl}
         ref={iframeRef}
         width="100%"
         height="100%"
