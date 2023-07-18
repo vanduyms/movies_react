@@ -47,8 +47,8 @@ const Video = () => {
       setUrl(`embed/${id}`);
     }
 
-    setShow(true);
-  }, [catergory, id]);
+    if (url) setShow(true);
+  }, [catergory, id, url]);
 
   return (
     <div className="video" >
