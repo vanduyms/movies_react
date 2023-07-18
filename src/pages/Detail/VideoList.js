@@ -14,8 +14,8 @@ const VideoList = props => {
 
     const getVideos = async () => {
       const id = await tmdbApi.detail(catergory, props.id, { params: {} });
-      console.log(id);
-      console.log(id.imdb_id);
+      // console.log(id);
+      // console.log(id.imdb_id);
 
       if (catergory === 'movie') setKeyUrl('movie.php?imdb=' + id.imdb_id);
       else setKeyUrl(`series.php?imdb=${id.imdb_id}&sea=${seasons}&epi=${episodes}`)
@@ -47,6 +47,7 @@ const Video = () => {
       setUrl(`embed/${id}`);
     }
 
+    console.log(url);
     if (url) setShow(true);
   }, [catergory, id, url]);
 
