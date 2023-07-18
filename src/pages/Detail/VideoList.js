@@ -28,7 +28,7 @@ const VideoList = props => {
   );
 }
 
-const Video = props => {
+const Video = () => {
   const { catergory, id } = useParams();
   const [show, setShow] = useState(false);
 
@@ -44,7 +44,6 @@ const Video = props => {
   if (url) setShow(true);
 
   const iframeRef = useRef(null);
-  // else:
   console.log(url);
   useEffect(() => {
     const height = iframeRef.current.offsetWidth * 9 / 16 + 'px';
@@ -52,7 +51,7 @@ const Video = props => {
   }, []);
 
   return (
-    <div className="video">
+    <div className="video" hidden={!show}>
       <iframe
         // src={`https://2embed.biz/play/movie.php?imdb=${}`}
         src={"https://www.2embed.cc/" + url}
@@ -61,7 +60,6 @@ const Video = props => {
         height="100%"
         title="video"
         allowFullScreen={true}
-        hidden={!show}
       ></iframe>
     </div>
   )
