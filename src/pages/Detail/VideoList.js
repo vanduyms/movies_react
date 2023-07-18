@@ -29,12 +29,17 @@ const VideoList = props => {
 }
 
 const Video = props => {
-  const keyUrl = props.keyUrl;
-  console.log(keyUrl);
-  console.log(useParams());
-  const iframeRef = useRef(null);
+  const { catergory, id } = useParams();
+  // const keyUrl = props.keyUrl;
   let url = "";
-  if (keyUrl[0] === "m") url = "/" + keyUrl.split("=")[1];
+  if (catergory === "tv") {
+    let tvSeries = id.split("&");
+    url = `/embedtv/${tvSeries[0]}&s=${tvSeries[1].split("=")[1]}&e=${tvSeries[2].split("=")[1]}`;
+  } else {
+    url = `embed/${id}`;
+  }
+
+  const iframeRef = useRef(null);
   // else:
   console.log(url);
   useEffect(() => {
@@ -47,7 +52,7 @@ const Video = props => {
     <div className="video">
       <iframe
         // src={`https://2embed.biz/play/movie.php?imdb=${}`}
-        src={"https://www.2embed.cc/embed" + url}
+        src={"https://www.2embed.cc/" + url}
         ref={iframeRef}
         width="100%"
         height="100%"
